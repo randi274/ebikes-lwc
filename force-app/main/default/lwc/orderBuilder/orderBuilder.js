@@ -17,6 +17,7 @@ import getOrderItems from '@salesforce/apex/OrderController.getOrderItems';
 import ORDER_ITEM_OBJECT from '@salesforce/schema/Order_Item__c';
 import ORDER_FIELD from '@salesforce/schema/Order_Item__c.Order__c';
 import PRODUCT_FIELD from '@salesforce/schema/Order_Item__c.Product__c';
+import QTY_XSMALL_FIELD from '@salesforce/schema/Order_Item__c.Qty_XS__c';
 import QTY_SMALL_FIELD from '@salesforce/schema/Order_Item__c.Qty_S__c';
 import QTY_MEDIUM_FIELD from '@salesforce/schema/Order_Item__c.Qty_M__c';
 import QTY_LARGE_FIELD from '@salesforce/schema/Order_Item__c.Qty_L__c';
@@ -33,6 +34,7 @@ const DISCOUNT = 0.6;
  */
 function getQuantity(orderItem) {
     return (
+        getSObjectValue(orderItem, QTY_XSMALL_FIELD) +
         getSObjectValue(orderItem, QTY_SMALL_FIELD) +
         getSObjectValue(orderItem, QTY_MEDIUM_FIELD) +
         getSObjectValue(orderItem, QTY_LARGE_FIELD)

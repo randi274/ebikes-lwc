@@ -4,6 +4,7 @@ public with sharing class OrderController {
         return [
             SELECT
                 Id,
+                Qty_XS__c,
                 Qty_S__c,
                 Qty_M__c,
                 Qty_L__c,

@@ -28,6 +28,15 @@
             ></lightning-input>
             <lightning-input
                 onchange={handleFormChange}
+                value={orderItem.Qty_XS__c}
+                data-field-name="Qty_XS__c"
+                label="X-Small"
+                type="number"
+                max-length="3"
+                class="quantity"
+            ></lightning-input>
+            <lightning-input
+                onchange={handleFormChange}
                 value={orderItem.Qty_S__c}
                 data-field-name="Qty_S__c"
                 label="Small"

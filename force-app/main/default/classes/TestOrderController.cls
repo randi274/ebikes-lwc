@@ -13,7 +13,8 @@ public class TestOrderController {
 
         Order_Item__c orderItem = new Order_Item__c(
             Order__c = order.Id,
-            Product__c = p.Id
+            Product__c = p.Id,
+            Qty_XS__c = 2
         );
         insert orderItem;
     }
@@ -25,5 +26,6 @@ public class TestOrderController {
             testOrder.Id
         );
         Assert.areEqual(1, orderItems.size());
+        System.assertEquals(2, orderItems[0].Qty_XS__c, 'XS Quantity was not correct');
     }
 }

@@ -44,8 +44,8 @@ describe('c-order-builder', () => {
 
     it('displays the correct number of tiles and their details', async () => {
         // Set values for validating component changes
-        const expectedItems = 9;
-        const expectedSum = 38880;
+        const expectedItems = 12;
+        const expectedSum = 51840;
 
         const element = createElement('c-order-builder', {
             is: OrderBuilder
@@ -85,8 +85,8 @@ describe('c-order-builder', () => {
     it('updates the component when an order has been updated', async () => {
         // Set values for validating component changes
         const mockRecordUpdate = { Id: 'a003B000004fG1VQAU', Qty_S__c: 3 };
-        const expectedItems = 11;
-        const expectedSum = 47280;
+        const expectedItems = 14;
+        const expectedSum = 60240;
 
         const element = createElement('c-order-builder', {
             is: OrderBuilder
@@ -134,8 +134,8 @@ describe('c-order-builder', () => {
     it('updates the component when an order has been deleted', async () => {
         // Set values for validating component changes
         const mockRecordToDeleteId = 'a003B000004fG1VQAU';
-        const expectedItems = 6;
-        const expectedSum = 26280;
+        const expectedItems = 8;
+        const expectedSum = 35040;
 
         const element = createElement('c-order-builder', {
             is: OrderBuilder
