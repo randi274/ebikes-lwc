@@ -1,0 +1,35 @@
+name: Code Analyzer
+
+on:
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Setup Node 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: '=20.18.1'
+
+      - name: Install Salesforce CLI
+        run: npm install -g --force @salesforce/cli@latest
+
+      - name: Install Latest Salesforce Code Analyzer CLI Plugin
+        run: sf plugins install code-analyzer@latest
+
+      - name: Run Salesforce Code Analyzer
+        id: run-code-analyzer
+        uses: forcedotcom/run-code-analyzer@v2
+        with:
+          run-arguments: --workspace . --view detail --output-file sfca_results.html --output-file sfca_results.json
+          results-artifact-name: salesforce-code-analyzer-results
+          github-token: ${{ github.token }}
